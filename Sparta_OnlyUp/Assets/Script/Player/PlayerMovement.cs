@@ -5,21 +5,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("===Object===")]
+    [SerializeField] private Transform cameraTrs;
+
     [Header("===Move===")]
     [SerializeField] private Vector2 moveVector;
     [SerializeField] private Rigidbody playerRb;
-    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speed = 0.9f;
+
+    [Header("===Rotate===")]
+    [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
+    [SerializeField] private float currentY;   // 현재 회전 상태 Y
+    [SerializeField] private float RotationBoundary = 80f;
+    [SerializeField] private float sensitivity;
 
     private void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+
+        sensitivity = 3f;
+
+        ChangeCursorState(CursorLockMode.Locked);
     }
 
     private void FixedUpdate()
     {
         PlayerMove();
     }
+    private void LateUpdate()
+    {
+        RotateCamera();
+    }
 
+    #region 플레이어 움직임 
+    
     private void PlayerMove() 
     {
         // moveVec은 x와 y 밖에 없음
@@ -47,6 +66,9 @@ public class PlayerMovement : MonoBehaviour
             moveVector = Vector2.zero;
         }
     }
+    #endregion
+
+    #region 플레이어 점프
 
     public void OnJump(InputAction.CallbackContext context) 
     { 
@@ -57,5 +79,42 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.up * 5f , ForceMode.Impulse);
         }
     }
+    #endregion
+
+    #region 플레이어 회전 
+
+    private void RotateCamera()
+    {
+        // 플레이어는 rotation의 y값만 바껴야한다
+        // 카메라는 rotation의 x값만 바껴야 한다
+
+        currentY += mouseDelta.y * sensitivity;
+
+        float newY = Mathf.Clamp(currentY, -80f , 80f) ;
+
+        // 카메라 회전 
+        cameraTrs.localEulerAngles = new Vector3( -newY, 0, 0);
+
+        // 플레이어 회전 
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * sensitivity, 0);
+    }
+
+    public void OnRotateCamera(InputAction.CallbackContext context)
+    {
+        // Delta값 :
+        // 화면의 중앙을 (0, 0) 기준으로
+        // 마우스를 빠르게 움직일수록 절대값이 커짐
+        //      마우스를 오른쪽으로 빠르게 이동: (15, 0)
+        //      마우스를 왼쪽으로 천천히 이동: (-2, 0)
+        mouseDelta = context.ReadValue<Vector2>();
+        // Debug.Log($"Mouse Delta: {mouseDelta}");
+    }
+
+    private void ChangeCursorState(CursorLockMode mode)
+    {
+        Cursor.lockState = mode;
+    }
+
+    #endregion
 
 }
