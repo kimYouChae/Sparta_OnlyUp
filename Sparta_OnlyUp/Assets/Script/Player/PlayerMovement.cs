@@ -75,9 +75,15 @@ public class PlayerMovement : MonoBehaviour
         // 한번 눌리면 
         if(context.phase == InputActionPhase.Started) 
         {
-            playerRb.velocity = Vector3.zero;
-            playerRb.AddForce(Vector3.up * 5f , ForceMode.Impulse);
+            // ##TODO : 임시로 점프 힘 줬음 
+            Jump(5f);
         }
+    }
+
+    public void Jump(float jumpPower) 
+    {
+        playerRb.velocity = Vector3.zero;
+        playerRb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
     }
     #endregion
 
@@ -117,4 +123,5 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    
 }

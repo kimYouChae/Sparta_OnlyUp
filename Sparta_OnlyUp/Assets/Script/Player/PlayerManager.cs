@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("===Script===")]
+    [SerializeField] private PlayerMovement movement;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public PlayerMovement PlayerMovement { get => movement; }
 }
