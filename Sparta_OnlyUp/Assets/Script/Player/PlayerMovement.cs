@@ -55,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        // 입력 시작 시 walk
+        if(context.phase == InputActionPhase.Started) 
+        {
+            PlayerManager.Instance.PlayerAnimator.ChangePlayerState(PlayerAnimation.Walk, true);
+        }
         // 입력이 있으면 받아오기
         if (context.phase == InputActionPhase.Performed)
         {
@@ -64,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
         else if(context.phase == InputActionPhase.Canceled) 
         {
             moveVector = Vector2.zero;
+
+            // 애니메이션 종료
+            PlayerManager.Instance.PlayerAnimator.ChangePlayerState(PlayerAnimation.Walk, false);
         }
     }
     #endregion
@@ -77,6 +85,9 @@ public class PlayerMovement : MonoBehaviour
         {
             // ##TODO : 임시로 점프 힘 줬음 
             Jump(5f);
+
+            // 애니메이션 실행
+            PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);
         }
     }
 
