@@ -23731,7 +23731,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3854920007137788938
 MonoBehaviour:
@@ -23827,6 +23827,7 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0}
   playerRb: {fileID: 0}
   speed: 3
+  jumpPower: 7
   mouseDelta: {x: 0, y: 0}
   currentY: 0
   RotationBoundary: 80
@@ -23881,10 +23882,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.111757234
   m_Height: 1.3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.71, z: 0}
+  m_Center: {x: 1.6779892e-16, y: 0.7099999, z: -0.050692186}
 --- !u!1 &3854925519179927713
 GameObject:
   m_ObjectHideFlags: 0
