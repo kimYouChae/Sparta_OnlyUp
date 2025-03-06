@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody playerRb;
     [SerializeField] private float speed = 0.9f;
 
+    [Header("===Jump===")]
+    [SerializeField] private float jumpPower = 7f;
+
     [Header("===Rotate===")]
     [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
     [SerializeField] private float currentY;   // 현재 회전 상태 Y
@@ -83,8 +86,7 @@ public class PlayerMovement : MonoBehaviour
         // 한번 눌리면 
         if(context.phase == InputActionPhase.Started) 
         {
-            // ##TODO : 임시로 점프 힘 줬음 
-            Jump(5f);
+            Jump(jumpPower);
 
             // 애니메이션 실행
             PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);

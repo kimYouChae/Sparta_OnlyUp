@@ -39,8 +39,8 @@ public class PlayerAnimator : MonoBehaviour
 
     private void OnAnimatorIK(int layerIndex)
     {
-        // 애니메이터가 실행되는 매 프레임 실행된다 ?
-        // 
+        // 애니메이터가 실행되는 매 프레임 실행
+
         if(animator != null) 
         {
             animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1f);
