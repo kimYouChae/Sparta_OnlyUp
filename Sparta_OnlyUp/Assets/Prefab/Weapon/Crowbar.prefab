@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6322582633385879506}
   - component: {fileID: 8454653079611460218}
   - component: {fileID: 7414042570800504800}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crowbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

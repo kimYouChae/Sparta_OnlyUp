@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4552841225501340455}
   - component: {fileID: 429274174363557023}
   - component: {fileID: 6684081791448105195}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fireaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
