@@ -8,6 +8,47 @@ public enum ItemType
     useable
 }
 
+
+public class Item
+{
+    [SerializeField] private int itemNum;
+    [SerializeField] private ItemType itemType;
+    [SerializeField] private string itemName;
+    [SerializeField] private string itemToopTip;
+
+    public Item(int num , ItemType type, string name, string tool)
+    {
+        this.itemNum = num;
+        this.itemType = type;
+        this.itemName = name;
+        this.itemToopTip = tool;
+    }
+}
+
+public class Weapon : Item
+{
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackDamage;
+
+    public Weapon(int num, ItemType type, string name, string tool , float attck, float damage) : base(num, type , name, tool)
+    {
+        this.attackSpeed = attck;
+        this.attackDamage = damage;
+    }
+}
+
+public class UsableItem : Item 
+{
+    [SerializeField] private float durationTime;
+    [SerializeField] private PlayerState playerState;
+
+    public UsableItem(int num, ItemType type, string name, string tool, float dura , PlayerState state) : base(num, type, name, tool)
+    { 
+        this.durationTime = dura;
+        this.playerState = state;
+    }
+}
+
 [System.Serializable]
 public class ItemWrapper : ICsvParsable
 {
@@ -15,9 +56,10 @@ public class ItemWrapper : ICsvParsable
     [SerializeField] private ItemType itemType;
     [SerializeField] private string itemName;
     [SerializeField] private string itemToopTip;
-    [SerializeField] float attackSpeed;
+    [SerializeField] private float attackSpeed;
     [SerializeField] private float attackDamage;
     [SerializeField] private float durationTime;
+    [SerializeField] private PlayerState playerState;
 
     public int ItemNum { get => itemNum;  }
     public ItemType ItemType { get => itemType; }
@@ -26,6 +68,7 @@ public class ItemWrapper : ICsvParsable
     public float AttackSpeed { get => attackSpeed;  }
     public float AttackDamage { get => attackDamage; }
     public float DurationTime { get => durationTime;  }
+    public PlayerState PlayerState { get => playerState; }
 
     public void Parse(string[] values)
     {
@@ -36,6 +79,7 @@ public class ItemWrapper : ICsvParsable
         // [4] attackSpeed
         // [5] attackDamage
         // [6] durationTime
+        // [7] PlayerState
 
         itemNum         = int.Parse(values[0]);
         itemType        = (ItemType)Enum.Parse(typeof(ItemType), values[1]);
@@ -44,7 +88,7 @@ public class ItemWrapper : ICsvParsable
         attackSpeed     = float.Parse(values[4]);
         attackDamage    = float.Parse(values[5]);
         durationTime    = float.Parse(values[6]);
-
+        playerState     = (PlayerState)Enum.Parse(typeof(PlayerState) , values[7]);
     }
 }
 
