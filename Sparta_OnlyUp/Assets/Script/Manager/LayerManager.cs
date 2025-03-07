@@ -32,23 +32,29 @@ public class LayerManager : MonoBehaviour
     [Header("===Layermask===")]
     [SerializeField] private LayerMask walkableLayer;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask interativeLayer;
     
     [Header("===Layer Int===")]
     [SerializeField] private int walkableLayerInt;
     [SerializeField] private int playerLayerInt;
+    [SerializeField] private int interactiveLayerInt;
     
     public LayerMask WalkableLayer { get => walkableLayer;  }
     public int WalkableLayerInt { get => walkableLayerInt;  }
     public LayerMask IgnorePlayerLayer { get => ignorePlayerLayer; }
+    public LayerMask InterativeLayer { get => interativeLayer;  }
+    public int InteractiveLayerInt { get => interactiveLayerInt; }
 
     // Start is called before the first frame update
     void Start()
     {
-        walkableLayer = LayerMask.GetMask("Walkable");
-        playerLayer = LayerMask.GetMask("Player");
+        walkableLayer       = LayerMask.GetMask("Walkable");
+        playerLayer         = LayerMask.GetMask("Player");
+        interativeLayer     = LayerMask.GetMask("InterativeItem");
 
-        walkableLayerInt = LayerMask.NameToLayer("Walkable");
-        playerLayerInt = LayerMask.NameToLayer("Player");
+        walkableLayerInt    = LayerMask.NameToLayer("Walkable");
+        playerLayerInt      = LayerMask.NameToLayer("Player");
+        interactiveLayerInt = LayerMask.NameToLayer("InterativeItem");
     }
 
 
