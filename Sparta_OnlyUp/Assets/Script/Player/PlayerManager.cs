@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
     [Header("===Script===")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAnimator animator;
+    [SerializeField] private PlayerInteration interaction;
 
     [Header("=== State ===")]
     [SerializeField] private float speed;
@@ -38,6 +39,7 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerMovement PlayerMovement { get => movement; }
     public PlayerAnimator PlayerAnimator { get => animator; }
+    public PlayerInteration PlayerInteraction { get => interaction; }
     public float Speed { get => speed; }
     public int JumpCount { get => jumpCount; }
 

@@ -11,6 +11,11 @@ public class ItemManager : MonoBehaviour
 
     void Start()
     {
+        InitItem();
+    }
+
+    private void InitItem() 
+    {
         // 역직렬화 
         List<ItemWrapper> wrapper = JsonSerialized.Deserialization<ItemWrapper>(wrapperName);
 
@@ -18,7 +23,7 @@ public class ItemManager : MonoBehaviour
         usableItemContainer = new Dictionary<int, UsableItem>();
 
         foreach (ItemWrapper itemWrapper in wrapper)
-        { 
+        {
             // weapon이면 ?
             if (itemWrapper.ItemType == ItemType.weapon)
             {
@@ -30,10 +35,10 @@ public class ItemManager : MonoBehaviour
                         itemWrapper.ItemToopTip,
                         itemWrapper.AttackSpeed,
                         itemWrapper.AttackDamage
-                    ));    
+                    ));
             }
             // usable 이면 ?
-            else 
+            else
             {
                 usableItemContainer.Add(itemWrapper.ItemNum, new UsableItem
                     (
@@ -43,9 +48,19 @@ public class ItemManager : MonoBehaviour
                         itemWrapper.ItemToopTip,
                         itemWrapper.DurationTime,
                         itemWrapper.PlayerState
-                    ));         
+                    ));
             }
         }
+    }
+
+    public Item ReturnItem( int idx ) 
+    {
+        if (idx <= 0) return null;
+        else if (idx < weaponContainer.Count)
+            return weaponContainer[idx];
+        else if (idx < usableItemContainer.Count)
+            return usableItemContainer[idx];
+        else return null;
     }
 
 }
