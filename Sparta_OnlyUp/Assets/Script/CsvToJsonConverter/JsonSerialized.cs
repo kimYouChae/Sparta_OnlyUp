@@ -53,8 +53,31 @@ public class JsonSerialized
     }
 
     // 해당 경로에 있는 텍스트 파일 가져오기 
-    
+    public static string GetTextFile(string fileName) 
+    {
+        try 
+        {
+            string path = Path.Combine(savePath , fileName);
+            string readText = File.ReadAllText(path);
 
+            return readText;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"파일 불러오는 중 오류 발생: {ex.Message}");
+            return "";
+        }
+    }
+
+    // 역직렬화
+    public static List<T> Deserialization<T>(string fileName) 
+    {
+        string readText = GetTextFile(fileName);
+
+        ListWrapper<T> temp = JsonUtility.FromJson<ListWrapper<T>>(readText);
+
+        return temp.values;
+    }
 
     /*
     // 오브젝트 타입 - Json
