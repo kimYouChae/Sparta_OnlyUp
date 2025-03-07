@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5970087743821264432}
   - component: {fileID: 3307506879152004894}
   - component: {fileID: 1352677828831533455}
+  - component: {fileID: 6718181497142025174}
   m_Layer: 0
   m_Name: Pickaxe
   m_TagString: Untagged
@@ -106,3 +107,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43166484107195346, guid: d234b40efbe957b46b3fccc0f955d3d3, type: 2}
+--- !u!114 &6718181497142025174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6669168848140885521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2df29ba5cb18c04dbe5553498431393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemNum: 5
