@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("===Rotate===")]
     [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
     [SerializeField] private float currentY;   // 현재 회전 상태 Y
-    [SerializeField] private float RotationBoundary = 80f;
+    [SerializeField] private float rotationBoundary = 80f;
     [SerializeField] private float sensitivity;
 
     private void Start()
@@ -109,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
         currentY += mouseDelta.y * sensitivity;
 
-        float newY = Mathf.Clamp(currentY, -80f , 80f) ;
+        float newY = Mathf.Clamp(currentY, -rotationBoundary, rotationBoundary) ;
 
         // 카메라 회전 
         cameraTrs.localEulerAngles = new Vector3( -newY, 0, 0);

@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerState 
+{
+    HP,
+    Speed,
+    JumpCount
+}
+
 public class PlayerManager : MonoBehaviour
 {
     // ½Ì±ÛÅæ
@@ -25,11 +32,32 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAnimator animator;
 
+    [Header("=== State ===")]
+    [SerializeField] private float speed;
+    [SerializeField] private int jumpCount;
+
     public PlayerMovement PlayerMovement { get => movement; }
     public PlayerAnimator PlayerAnimator { get => animator; }
+    public float Speed { get => speed; }
+    public int JumpCount { get => jumpCount; }
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public void UpdatePlayerState(PlayerState state, float value) 
+    {
+        switch (state) 
+        { 
+            case PlayerState.HP:
+                break;
+            case PlayerState.Speed:
+                speed += value;
+                break;
+            case PlayerState.JumpCount:
+                jumpCount += (int)value;
+                break;
+        }
     }
 }
