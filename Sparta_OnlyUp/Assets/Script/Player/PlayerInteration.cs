@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PlayerInteration : MonoBehaviour
     [SerializeField] private float maxdistance;
 
     [SerializeField] private int currItemIdx = -1;
+
+    public int CurrItemIdx { get => currItemIdx;  }
 
     private void Start()
     {
@@ -47,5 +50,13 @@ public class PlayerInteration : MonoBehaviour
             // raycast를 벗어나면 -1로
             currItemIdx = -1;
         }
+
+        // UI 업데이트
+        try
+        {
+            MainGameManager.Instance.mainGameUi.InteractItem(currItemIdx);
+        }
+        catch (Exception e) { Debug.Log($"플레이어의 상호작용에서 오류{e}"); }
+
     }
 }

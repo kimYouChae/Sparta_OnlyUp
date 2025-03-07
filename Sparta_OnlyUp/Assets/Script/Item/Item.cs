@@ -15,6 +15,8 @@ public class Item
     [SerializeField] private ItemType itemType;
     [SerializeField] private string itemName;
     [SerializeField] private string itemToopTip;
+    public string ItemName { get => itemName; }
+    public string ItemToopTip { get => itemToopTip;  }
 
     public Item(int num , ItemType type, string name, string tool)
     {
@@ -23,6 +25,7 @@ public class Item
         this.itemName = name;
         this.itemToopTip = tool;
     }
+
 }
 
 public class Weapon : Item
