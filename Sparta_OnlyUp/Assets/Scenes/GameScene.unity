@@ -291,7 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 108182466}
   - component: {fileID: 108182467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 234184290}
   - component: {fileID: 234184291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 239163603}
   - component: {fileID: 239163602}
   - component: {fileID: 239163601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Port_Concrete_Slab_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 364271656}
   - component: {fileID: 364271655}
   - component: {fileID: 364271654}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Window_Bars_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1353,7 +1353,7 @@ GameObject:
   - component: {fileID: 519241991}
   - component: {fileID: 519241990}
   - component: {fileID: 519241989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Port_Concrete_Slab_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,6 +1691,59 @@ Transform:
   - {fileID: 690484941}
   m_Father: {fileID: 690297820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &565798989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565798990}
+  - component: {fileID: 565798991}
+  m_Layer: 6
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565798990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565798989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0017377145, y: -0.040530592, z: -0.042799536, w: 0.9982597}
+  m_LocalPosition: {x: 0, y: -1.05, z: 0.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 396461636311142777}
+  m_LocalEulerAnglesHint: {x: 0, y: -4.65, z: -4.91}
+--- !u!65 &565798991
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565798989}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.391079, y: 0.4217596, z: 5.134465}
+  m_Center: {x: -11.839298, y: 5.503941, z: -1.6064363}
 --- !u!1 &608505621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2484,7 +2537,7 @@ GameObject:
   - component: {fileID: 891809512}
   - component: {fileID: 891809511}
   - component: {fileID: 891809510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SelectStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2844,6 +2897,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1874907950}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1082752583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1082752584}
+  - component: {fileID: 1082752585}
+  m_Layer: 6
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1082752584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082752583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 396461636311142777}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1082752585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082752583}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.8908138, y: 4.866837, z: 13.376868}
+  m_Center: {x: -0.13019085, y: 1.9334185, z: -1.9167781}
 --- !u!1 &1086553061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,7 +3772,7 @@ GameObject:
   - component: {fileID: 1285991830}
   - component: {fileID: 1285991829}
   - component: {fileID: 1285991828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Grass_Square_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3960,7 +4066,7 @@ GameObject:
   - component: {fileID: 1489648050}
   - component: {fileID: 1489648049}
   - component: {fileID: 1489648048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4377,7 +4483,7 @@ GameObject:
   - component: {fileID: 1628019109}
   - component: {fileID: 1628019108}
   - component: {fileID: 1628019107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Window_Bars_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5014,7 +5120,7 @@ GameObject:
   - component: {fileID: 1704306056}
   - component: {fileID: 1704306055}
   - component: {fileID: 1704306054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Window_Bars_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5612,7 +5718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1950787697}
   - component: {fileID: 1950787698}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5696,7 +5802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958100029}
   - component: {fileID: 1958100030}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6136,7 +6242,7 @@ GameObject:
   - component: {fileID: 2077470245}
   - component: {fileID: 2077470244}
   - component: {fileID: 2077470243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Window_Bars_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7711,6 +7817,8 @@ Transform:
   - {fileID: 404800285144826385}
   - {fileID: 404965741595793017}
   - {fileID: 396614342275535657}
+  - {fileID: 1082752584}
+  - {fileID: 565798990}
   m_Father: {fileID: 225777929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &396614342275535657
@@ -11250,7 +11358,7 @@ GameObject:
   - component: {fileID: 1307586856084459066}
   - component: {fileID: 1297269774708307854}
   - component: {fileID: 1348253312856180908}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Tire_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16979,7 +17087,7 @@ GameObject:
   - component: {fileID: 2402005802996870439}
   - component: {fileID: 2413472956446494115}
   - component: {fileID: 2434250650206057875}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Wirespool_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18063,7 +18171,7 @@ GameObject:
   - component: {fileID: 2767666682171425082}
   - component: {fileID: 2757423238664910740}
   - component: {fileID: 2806933200979706808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Range_Wall_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19576,7 +19684,7 @@ GameObject:
   - component: {fileID: 3203539832469308299}
   - component: {fileID: 3203090999349039393}
   - component: {fileID: 3203339048120369381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Bridge_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20309,7 +20417,7 @@ GameObject:
   - component: {fileID: 3320588589182739501}
   - component: {fileID: 3328354838878051737}
   - component: {fileID: 3352252440720761531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Tire_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25216,7 +25324,7 @@ GameObject:
   - component: {fileID: 4169534177826439473}
   - component: {fileID: 4177809530571354223}
   - component: {fileID: 4128766804601857065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Dock_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26309,7 +26417,7 @@ GameObject:
   - component: {fileID: 4427418177185030201}
   - component: {fileID: 4419278065547076457}
   - component: {fileID: 4460248995858137033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Port_Concrete_Slab_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29358,7 +29466,7 @@ GameObject:
   - component: {fileID: 5080433254814942563}
   - component: {fileID: 5090470062732033239}
   - component: {fileID: 5049059989498921973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Tire_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29377,7 +29485,7 @@ GameObject:
   - component: {fileID: 5081639792196620023}
   - component: {fileID: 5093112851494727283}
   - component: {fileID: 5050802286098060867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Wirespool_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29724,7 +29832,7 @@ GameObject:
   - component: {fileID: 5200025410690370959}
   - component: {fileID: 5192554500834634209}
   - component: {fileID: 5212990855924323406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Destroyed_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31379,7 +31487,7 @@ GameObject:
   - component: {fileID: 5666582050871756085}
   - component: {fileID: 5657911459324555741}
   - component: {fileID: 5635885760470015091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Bld_Window_Bars_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31608,7 +31716,7 @@ GameObject:
   - component: {fileID: 5701267951571037549}
   - component: {fileID: 5709245270974354649}
   - component: {fileID: 5732649741894740987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Tire_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32799,7 +32907,7 @@ GameObject:
   - component: {fileID: 6001377318595824361}
   - component: {fileID: 6011031994060270205}
   - component: {fileID: 6042443714660602009}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Veh_Car_Plate_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33661,7 +33769,7 @@ GameObject:
   - component: {fileID: 6324569353840079973}
   - component: {fileID: 6336178754460243169}
   - component: {fileID: 6294048544855698641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Prop_Wirespool_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39378,7 +39486,7 @@ GameObject:
   - component: {fileID: 7891848367410431070}
   - component: {fileID: 7900119530800592128}
   - component: {fileID: 7859908287980577094}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SM_Env_Dock_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
