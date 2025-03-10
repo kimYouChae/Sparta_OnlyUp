@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6018718201196653066}
   - component: {fileID: 2271958512511599858}
   - component: {fileID: 3966636354230939438}
-  - component: {fileID: 6647551338550267286}
   - component: {fileID: 3835416025495951259}
+  - component: {fileID: 487567836323306274}
   m_Layer: 8
   m_Name: DoubleJump
   m_TagString: Untagged
@@ -85,8 +85,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6647551338550267286
-MeshCollider:
+--- !u!114 &3835416025495951259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34855018185330310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2df29ba5cb18c04dbe5553498431393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemNum: 8
+--- !u!65 &487567836323306274
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -103,20 +116,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43785601049107132, guid: cdc792ae6ed1dc94dab0e8767979bae5, type: 2}
---- !u!114 &3835416025495951259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34855018185330310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2df29ba5cb18c04dbe5553498431393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemNum: 8
+  serializedVersion: 3
+  m_Size: {x: 0.010056305, y: 0.011612056, z: 0.0008765962}
+  m_Center: {x: 0, y: -0.000000019092118, z: 0.000000001789886}
