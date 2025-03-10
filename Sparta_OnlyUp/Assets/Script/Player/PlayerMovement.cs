@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,7 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("===Jump===")]
     [SerializeField] private float jumpPower = 7f;
-    [SerializeField] private bool isJumping;
 
     [Header("===Rotate===")]
     [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
@@ -29,33 +27,43 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
 
         sensitivity = 3f;
-        isJumping = false;
 
         ChangeCursorState(CursorLockMode.Locked);
     }
 
     private void FixedUpdate()
     {
-        if(!isJumping)
-            PlayerMove();
+        PlayerMove();
     }
+
     private void LateUpdate()
     {
         RotateCamera();
     }
 
     #region 플레이어 움직임 
-    
+
+
     private void PlayerMove() 
     {
+        // moveVector를 이용해 이동 방향 계산
+        Vector3 dir = transform.forward * moveVector.y + transform.right * moveVector.x;
+
+        // 정규화하고 속도 적용
+        dir = dir.normalized * speed * Time.fixedDeltaTime;
+
+        // transform.position을 직접 업데이트하여 플레이어 이동
+        transform.position += dir;
+
         // moveVec은 x와 y 밖에 없음
         // y가 양수면 앞쪽으로 이동
         // y가 음수면 뒤쪽으로 이동
         // x가 양수면 오른쪽으로 이동
         // x가 음수면 왼쪽으로 이동
-        Vector3 dir = transform.forward * moveVector.y + transform.right * moveVector.x;
-        dir *= speed;
-        playerRb.velocity = new Vector3(dir.x, playerRb.velocity.y, dir.z);
+        
+        // Vector3 dir = transform.forward * moveVector.y + transform.right * moveVector.x;
+        // dir *= speed;
+        // playerRb.velocity = new Vector3(dir.x, playerRb.velocity.y, dir.z);
         // 현재 물리엔진에 계산되고 있는 y 값을 넣어줘야함 
         //playerRb.velocity = dir;
     }
@@ -102,13 +110,10 @@ public class PlayerMovement : MonoBehaviour
 
         yield return new WaitForSeconds(curAnimationTime);
 
-        isJumping = false;
     }
 
     public void Jump(float power, Vector3 dir) 
     {
-        isJumping = true;
-
         AddForceToDIrect(power, dir);
 
         // 애니메이션 실행

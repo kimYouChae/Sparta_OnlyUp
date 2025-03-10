@@ -49,6 +49,7 @@ public class LayerManager : MonoBehaviour
     public LayerMask OwnItemLayer { get => ownItemLayer; set => ownItemLayer = value; }
     public int OwnItemLayerInt { get => ownItemLayerInt; set => ownItemLayerInt = value; }
     public LayerMask PlayerLayer { get => playerLayer;  }
+    public int PlayerLayerInt { get => playerLayerInt;  }
 
     // Start is called before the first frame update
     void Start()
