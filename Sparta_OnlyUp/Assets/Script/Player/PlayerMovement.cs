@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region 플레이어 회전 
+    #region 플레이어/카메라 회전 
 
     private void RotateCamera()
     {
@@ -136,5 +136,15 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    
+    #region
+    public void OnInteract(InputAction.CallbackContext context) 
+    {
+        if (context.phase == InputActionPhase.Started) 
+        {
+            PlayerManager.Instance.PlayerInteraction.PlayerInputInteratKey();
+        }
+
+    }
+
+    #endregion
 }
