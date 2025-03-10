@@ -2136,6 +2136,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 32b1bab75bf0b1046ba75ee4eef8d947, type: 3}
   buffParent: {fileID: 535167113}
   countText: {fileID: 336695031}
+  hpBar: {fileID: 1723483653}
 --- !u!114 &570748936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25933,8 +25934,6 @@ MonoBehaviour:
   animator: {fileID: 3854920007137788941}
   interaction: {fileID: 3854920007137788943}
   useItem: {fileID: 3854920007137788944}
-  speed: 0
-  jumpCount: 0
   dropItemTrs: {fileID: 1133237530}
   weaponEquipTrs: {fileID: 3851983494919623743}
 --- !u!114 &3854920007137788941
