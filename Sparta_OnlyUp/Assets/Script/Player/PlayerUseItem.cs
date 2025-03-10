@@ -74,12 +74,12 @@ public class PlayerUseItem : MonoBehaviour
         if (currUsableItems.Count <= 0)
             return;
 
+        // usable 아이템 맨 앞에 있는거 사용 
         UsableItem currItem = currUsableItems[0];
 
         // Ui 업데이트
-        MainGameManager.Instance.mainGameUi.UpdateBuffIcon(currItem.ItemNum);
+        MainGameManager.Instance.mainGameUi.UpdateBuffIcon(currItem.ItemNum, false);
 
-        // usable 아이템 맨 앞에 있는거 사용 
         int amout = currItem.PlayerState == PlayerState.Speed ? 3 : 1;
 
         StartCoroutine( UseBuff(currItem.PlayerState , amout , currItem.DurationTime));
@@ -99,6 +99,7 @@ public class PlayerUseItem : MonoBehaviour
 
         // 리스트에 있는 첫번째거 지우기
         DeleteBuffItem();
+
     }
 
     private void DeleteBuffItem() 

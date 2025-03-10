@@ -66,7 +66,7 @@ public class MainGameUI : MonoBehaviour
         {
             try 
             {
-                Destroy(buffParent.GetChild(0));
+                Destroy(buffParent.GetChild(0).gameObject);
             }
             catch (Exception e) { Debug.Log($"MainGameUi : 버프 이미지 삭제 중 오류 발생 {e}"); }
         }

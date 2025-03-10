@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 dir = transform.forward * moveVector.y + transform.right * moveVector.x;
 
         // 정규화하고 속도 적용
-        dir = dir.normalized * speed * Time.fixedDeltaTime;
+        dir = dir.normalized * PlayerManager.Instance.Speed * Time.fixedDeltaTime;
 
         // transform.position을 직접 업데이트하여 플레이어 이동
         transform.position += dir;
