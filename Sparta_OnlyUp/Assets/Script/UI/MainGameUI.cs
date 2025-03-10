@@ -21,6 +21,9 @@ public class MainGameUI : MonoBehaviour
     [Header("===Count===")]
     [SerializeField] private TextMeshProUGUI countText;
 
+    [Header("===HP Bar")]
+    [SerializeField] private Image hpBar;
+
     private void Start()
     {
         interactText.text = "";
@@ -81,5 +84,8 @@ public class MainGameUI : MonoBehaviour
             countText.gameObject.SetActive(false);
     }
 
-
+    public void UpdateHpBar(float amount) 
+    {
+        hpBar.fillAmount = amount;
+    }
 }
