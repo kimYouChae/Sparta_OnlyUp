@@ -136,5 +136,15 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
-    
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            PlayerManager.Instance.PlayerInteraction.PlayerInputInteratKey();
+        }
+
+    }
+
+
+
 }

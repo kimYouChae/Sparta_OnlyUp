@@ -32,16 +32,25 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAnimator animator;
     [SerializeField] private PlayerInteration interaction;
+    [SerializeField] private PlayerUseItem useItem;
 
     [Header("=== State ===")]
     [SerializeField] private float speed;
     [SerializeField] private int jumpCount;
+
+    [Header("===Component===")]
+    [SerializeField] private Transform dropItemTrs;
+    [SerializeField] private Transform weaponEquipTrs;
 
     public PlayerMovement PlayerMovement { get => movement; }
     public PlayerAnimator PlayerAnimator { get => animator; }
     public PlayerInteration PlayerInteraction { get => interaction; }
     public float Speed { get => speed; }
     public int JumpCount { get => jumpCount; }
+    public PlayerUseItem UseItem { get => useItem;  }
+    public PlayerUseItem PlayerUseItem { get => useItem; }
+    public Transform WeaponEquipTrs { get => weaponEquipTrs; }
+    public Transform DropItemTrs { get => dropItemTrs; }
 
     private void Awake()
     {

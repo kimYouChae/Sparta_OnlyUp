@@ -11,6 +11,8 @@ public class PlayerInteration : MonoBehaviour
 
     [SerializeField] private int currItemIdx = -1;
 
+    [SerializeField] private GameObject currInteracItem;
+
     public int CurrItemIdx { get => currItemIdx;  }
 
     private void Start()
@@ -44,11 +46,13 @@ public class PlayerInteration : MonoBehaviour
 
             // hit된 아이템으로 
             currItemIdx = hit.transform.GetComponent<ItemCrops>().ItemNum;
+            currInteracItem = hit.transform.gameObject;
         }
         else 
         {
             // raycast를 벗어나면 -1로
             currItemIdx = -1;
+            currInteracItem = null;
         }
 
         // UI 업데이트
@@ -58,5 +62,13 @@ public class PlayerInteration : MonoBehaviour
         }
         catch (Exception e) { Debug.Log($"플레이어의 상호작용에서 오류{e}"); }
 
+    }
+
+    public void PlayerInputInteratKey()
+    {
+        if (currItemIdx <= -1)
+            return;
+
+        PlayerManager.Instance.PlayerUseItem.ObtainItem(currInteracItem, currItemIdx);
     }
 }

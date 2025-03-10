@@ -7,9 +7,17 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     string wrapperName = "ItemWrapper";
+
+    [Header("===Item Container===")]
     private List<Item> items;
     private Dictionary<int, Weapon> weaponContainer;
     private Dictionary<int, UsableItem> usableItemContainer;
+
+    [Header("===ItemPrefabs===")]
+    [SerializeField] List<GameObject> itemPrefabs;
+
+    public List<GameObject> ItemPrefabs { get => itemPrefabs; }
+
 
     void Start()
     {
