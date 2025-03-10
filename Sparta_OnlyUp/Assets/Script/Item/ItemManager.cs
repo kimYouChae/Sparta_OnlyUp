@@ -18,6 +18,7 @@ public class ItemManager : MonoBehaviour
 
     public List<GameObject> ItemPrefabs { get => itemPrefabs; }
 
+    public int WeaponCount => weaponContainer.Count;
 
     void Start()
     {

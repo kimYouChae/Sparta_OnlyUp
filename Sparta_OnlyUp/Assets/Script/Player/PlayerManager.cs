@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private PlayerUseItem useItem;
 
     [Header("=== State ===")]
-    [SerializeField] private float speed;
+    [SerializeField] private int speed;
     [SerializeField] private int jumpCount;
 
     [Header("===Component===")]
@@ -45,19 +45,23 @@ public class PlayerManager : MonoBehaviour
     public PlayerMovement PlayerMovement { get => movement; }
     public PlayerAnimator PlayerAnimator { get => animator; }
     public PlayerInteration PlayerInteraction { get => interaction; }
-    public float Speed { get => speed; }
-    public int JumpCount { get => jumpCount; }
-    public PlayerUseItem UseItem { get => useItem;  }
     public PlayerUseItem PlayerUseItem { get => useItem; }
+    
     public Transform WeaponEquipTrs { get => weaponEquipTrs; }
     public Transform DropItemTrs { get => dropItemTrs; }
+
+    public int Speed { get => speed; }
+    public int JumpCount { get => jumpCount; }
 
     private void Awake()
     {
         instance = this;
+
+        speed = 3;
+        jumpCount = 1;
     }
 
-    public void UpdatePlayerState(PlayerState state, float value) 
+    public void UpdatePlayerState(PlayerState state, int value) 
     {
         switch (state) 
         { 
@@ -67,8 +71,22 @@ public class PlayerManager : MonoBehaviour
                 speed += value;
                 break;
             case PlayerState.JumpCount:
-                jumpCount += (int)value;
+                jumpCount += value;
                 break;
         }
+    }
+
+    public int ReturnPlayerState( PlayerState state) 
+    {
+        switch (state)
+        {
+            case PlayerState.HP:
+                return -1;
+            case PlayerState.Speed:
+                return speed;
+            case PlayerState.JumpCount:
+                return jumpCount;
+        }
+        return -1;
     }
 }

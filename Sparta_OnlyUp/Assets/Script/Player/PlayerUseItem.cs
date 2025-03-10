@@ -19,16 +19,21 @@ public class PlayerUseItem : MonoBehaviour
     {
         int index = currItem.GetComponent<ItemCrops>().ItemNum;
         Item it = MainGameManager.Instance.itemManager.ReturnItem(index);
-
+        
+        // 아이템 획득 
         if (it.ItemType == ItemType.weapon)
         {
             ObtainWeapon(currItem, it);
 
             currWeaponItem = (Weapon)it;
         }
+        // 버프 획득 
         else
         {
             currUsableItems.Add((UsableItem)it);
+
+            // Ui 업데이트
+            MainGameManager.Instance.mainGameUi.UpdateBuffIcon(idx);
         }
     }
 
@@ -62,5 +67,42 @@ public class PlayerUseItem : MonoBehaviour
         Destroy(curr.GetComponent<Rigidbody>());
 
         curr.layer = LayerManager.Instance.OwnItemLayerInt;
+    }
+
+    public void UseBuff() 
+    {
+        if (currUsableItems.Count <= 0)
+            return;
+
+        UsableItem currItem = currUsableItems[0];
+
+        // Ui 업데이트
+        MainGameManager.Instance.mainGameUi.UpdateBuffIcon(currItem.ItemNum);
+
+        // usable 아이템 맨 앞에 있는거 사용 
+        int amout = currItem.PlayerState == PlayerState.Speed ? 3 : 1;
+
+        StartCoroutine( UseBuff(currItem.PlayerState , amout , currItem.DurationTime));
+    }
+
+    IEnumerator UseBuff(PlayerState state, int amount , float time) 
+    {
+        // 원래 플레이어 스탯
+        int ori = PlayerManager.Instance.ReturnPlayerState(state);
+
+        // 플레이어 스탯 업데이트 
+        PlayerManager.Instance.UpdatePlayerState(state , amount);
+
+        yield return new WaitForSeconds(time);
+
+        PlayerManager.Instance.UpdatePlayerState(state, -ori);
+
+        // 리스트에 있는 첫번째거 지우기
+        DeleteBuffItem();
+    }
+
+    private void DeleteBuffItem() 
+    {
+        currUsableItems.RemoveAt(0);
     }
 }

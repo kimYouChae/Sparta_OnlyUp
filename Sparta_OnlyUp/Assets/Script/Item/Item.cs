@@ -49,6 +49,9 @@ public class UsableItem : Item
     [SerializeField] private float durationTime;
     [SerializeField] private PlayerState playerState;
 
+    public PlayerState PlayerState { get => playerState;  }
+    public float DurationTime { get => durationTime;  }
+
     public UsableItem(int num, ItemType type, string name, string tool, float dura , PlayerState state) : base(num, type, name, tool)
     { 
         this.durationTime = dura;
