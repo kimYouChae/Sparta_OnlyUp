@@ -33,7 +33,4 @@ public class MainGameManager : MonoBehaviour
     public MainGameUI mainGameUi;
     public ItemManager itemManager;
     public PlayerManager playerManager;
-
-    [Header("===ItemContainer===")]
-    public Transform itemParent;
 }

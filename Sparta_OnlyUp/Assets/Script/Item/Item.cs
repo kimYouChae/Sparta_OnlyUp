@@ -8,20 +8,15 @@ public enum ItemType
     useable
 }
 
-[System.Serializable]
+
 public class Item
 {
     [SerializeField] private int itemNum;
     [SerializeField] private ItemType itemType;
     [SerializeField] private string itemName;
     [SerializeField] private string itemToopTip;
-<<<<<<< Updated upstream
-=======
     public string ItemName { get => itemName; }
     public string ItemToopTip { get => itemToopTip;  }
-    public ItemType ItemType { get => itemType;  }
-    public int ItemNum { get => itemNum;  }
->>>>>>> Stashed changes
 
     public Item(int num , ItemType type, string name, string tool)
     {
@@ -30,9 +25,9 @@ public class Item
         this.itemName = name;
         this.itemToopTip = tool;
     }
+
 }
 
-[System.Serializable]
 public class Weapon : Item
 {
     [SerializeField] private float attackSpeed;
@@ -45,7 +40,6 @@ public class Weapon : Item
     }
 }
 
-[System.Serializable]
 public class UsableItem : Item 
 {
     [SerializeField] private float durationTime;
