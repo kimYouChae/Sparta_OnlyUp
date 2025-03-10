@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -136,6 +137,8 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    #region 플레이어 아이템 획득
+    
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)
@@ -144,7 +147,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    #endregion
 
-
-
+    #region 플레이어 버프 아이템 사용 
+    public void OnUseBuff(InputAction.CallbackContext context) 
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            PlayerManager.Instance.PlayerUseItem.UseBuff();
+        }
+    }
+    #endregion
 }
