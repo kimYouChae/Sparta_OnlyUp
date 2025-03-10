@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("===Jump===")]
     [SerializeField] private float jumpPower = 7f;
+    [SerializeField] private bool isJumping;
 
     [Header("===Rotate===")]
     [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
@@ -28,13 +29,15 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
 
         sensitivity = 3f;
+        isJumping = false;
 
         ChangeCursorState(CursorLockMode.Locked);
     }
 
     private void FixedUpdate()
     {
-        PlayerMove();
+        if(!isJumping)
+            PlayerMove();
     }
     private void LateUpdate()
     {
@@ -87,17 +90,42 @@ public class PlayerMovement : MonoBehaviour
         // 한번 눌리면 
         if(context.phase == InputActionPhase.Started) 
         {
-            Jump(jumpPower);
-
-            // 애니메이션 실행
-            PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);
+            Jump(jumpPower , Vector3.zero);
         }
     }
 
-    public void Jump(float jumpPower) 
+    IEnumerator WaitForJump() 
+    {
+        yield return new WaitForSeconds(0.01f);
+
+        float curAnimationTime = PlayerManager.Instance.PlayerAnimator.Animator.GetCurrentAnimatorStateInfo(0).length;
+
+        yield return new WaitForSeconds(curAnimationTime);
+
+        isJumping = false;
+    }
+
+    public void Jump(float power, Vector3 dir) 
+    {
+        isJumping = true;
+
+        AddForceToDIrect(power, dir);
+
+        // 애니메이션 실행
+        PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);
+
+        StartCoroutine(WaitForJump());
+    }
+
+    public void AddForceToDIrect(float jumpPower, Vector3 jumpdir) 
     {
         playerRb.velocity = Vector3.zero;
-        playerRb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+
+        Vector3 jumpDirection = (Vector3.up  + jumpdir).normalized;
+
+        // 최종 힘 적용
+        playerRb.AddForce(jumpDirection * jumpPower, ForceMode.Impulse);
+
     }
     #endregion
 

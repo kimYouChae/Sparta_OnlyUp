@@ -20,7 +20,7 @@ public class JumpPanel : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerManager>(out PlayerManager pl )) 
         {
-            try { pl.PlayerMovement.Jump(jumpPower); }
+            try { pl.PlayerMovement.Jump(jumpPower, Vector3.zero ); }
             catch (Exception e) { Debug.Log(e.ToString()); }
         }
     }
