@@ -31,32 +31,15 @@ public class PlayerManager : MonoBehaviour
     [Header("===Script===")]
     [SerializeField] private PlayerMovement movement;
     [SerializeField] private PlayerAnimator animator;
-<<<<<<< Updated upstream
-
-=======
     [SerializeField] private PlayerInteration interaction;
-    [SerializeField] private PlayerUseItem useItem;
-    
->>>>>>> Stashed changes
+
     [Header("=== State ===")]
     [SerializeField] private float speed;
     [SerializeField] private int jumpCount;
 
-    [Header("===Component===")]
-    [SerializeField] private Transform dropItemTrs;
-    [SerializeField] private Transform weaponEquipTrs;
-
     public PlayerMovement PlayerMovement { get => movement; }
     public PlayerAnimator PlayerAnimator { get => animator; }
-<<<<<<< Updated upstream
-=======
     public PlayerInteration PlayerInteraction { get => interaction; }
-    public PlayerUseItem PlayerUseItem { get => useItem; }
-    public Transform WeaponEquipTrs { get => weaponEquipTrs; }
-    public Transform DropItemTrs { get => dropItemTrs;  }
-
-    // 수정예정 
->>>>>>> Stashed changes
     public float Speed { get => speed; }
     public int JumpCount { get => jumpCount; }
 
