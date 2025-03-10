@@ -18,7 +18,7 @@ public class PlayerAnimator : MonoBehaviour
     [Range(0, 1f)]
     public float distanceToGround;
 
-    public LayerMask layerMask;
+    public Animator Animator { get => animator;  }
 
     void Start()
     {

@@ -36,4 +36,7 @@ public class MainGameManager : MonoBehaviour
 
     [Header("===ItemContainer===")]
     public Transform itemParent;
+
+    [Header("===Object===")]
+    public GameObject player;
 }

@@ -18,9 +18,13 @@ public class MainGameUI : MonoBehaviour
     [SerializeField] private Sprite[] buffIcon;
     [SerializeField] private Transform buffParent;
 
+    [Header("===Count===")]
+    [SerializeField] private TextMeshProUGUI countText;
+
     private void Start()
     {
         interactText.text = "";
+        countText.gameObject.SetActive(false);
     }
 
     public void InteractItem(int idx) 
@@ -63,6 +67,18 @@ public class MainGameUI : MonoBehaviour
             }
             catch (Exception e) { Debug.Log($"MainGameUi : 버프 이미지 삭제 중 오류 발생 {e}"); }
         }
+    }
+
+    public void PrintCount(int idx ) 
+    {
+        // 켜기 
+        if(countText.gameObject.activeSelf == false)
+            countText.gameObject.SetActive(true);
+
+        countText.text = idx.ToString();
+
+        if (idx == 0)
+            countText.gameObject.SetActive(false);
     }
 
 
