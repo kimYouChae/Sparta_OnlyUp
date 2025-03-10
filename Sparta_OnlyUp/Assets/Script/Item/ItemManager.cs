@@ -6,8 +6,19 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour
 {
     string wrapperName = "ItemWrapper";
+<<<<<<< Updated upstream
+=======
+
+    [Header("===Item Container===")]
+    private List<Item> items;
+>>>>>>> Stashed changes
     private Dictionary<int, Weapon> weaponContainer;
     private Dictionary<int, UsableItem> usableItemContainer;
+
+    [Header("===ItemPrefabs===")]
+    [SerializeField] List<GameObject> itemPrefabs;
+
+    public List<GameObject> ItemPrefabs { get => itemPrefabs; }
 
     void Start()
     {
