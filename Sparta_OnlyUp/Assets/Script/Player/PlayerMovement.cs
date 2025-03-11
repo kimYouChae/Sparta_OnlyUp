@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("===Jump===")]
     [SerializeField] private float jumpPower = 7f;
+    [SerializeField] private bool canJump = false;
+    [SerializeField] private int jumpCount = 0;
 
     [Header("===Rotate===")]
     [SerializeField] private Vector2 mouseDelta;        // 마우스 움직임 델타
@@ -27,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
 
         sensitivity = 3f;
+        canJump = true;
 
         ChangeCursorState(CursorLockMode.Locked);
     }
@@ -98,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
         // 한번 눌리면 
         if(context.phase == InputActionPhase.Started) 
         {
-            Jump(jumpPower , Vector3.zero);
+            if(canJump && jumpCount < PlayerManager.Instance.JumpCount)
+                Jump(jumpPower , Vector3.zero);
         }
     }
 
@@ -114,12 +118,44 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(float power, Vector3 dir) 
     {
+        canJump = false;
+        jumpCount++;
+
         AddForceToDIrect(power, dir);
 
         // 애니메이션 실행
         PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);
 
-        StartCoroutine(WaitForJump());
+        StartCoroutine(JumpAndHitGround());
+    }
+
+    IEnumerator JumpAndHitGround() 
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (true) 
+        {
+            RaycastHit hit;
+            Ray ray = new Ray(transform.position + new Vector3(0, 2, 0), -transform.up);
+
+            Debug.DrawRay(ray.origin, ray.direction * 2.2f, Color.blue);
+
+            if (Physics.Raycast(ray, out hit, 2.2f, LayerManager.Instance.WalkableLayer))
+            {
+                // Debug.Log("땅이랑충돌");
+                if (!canJump)
+                { 
+                    canJump = true;
+                    jumpCount = 0;
+                    break;
+                }
+            }
+
+            yield return null;
+        }
+
+        yield break;
+        
     }
 
     public void AddForceToDIrect(float jumpPower, Vector3 jumpdir) 
