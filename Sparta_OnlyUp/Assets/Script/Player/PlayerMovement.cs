@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         // 한번 눌리면 
         if(context.phase == InputActionPhase.Started) 
         {
-            if(canJump && jumpCount < PlayerManager.Instance.JumpCount)
+            if( canJump && jumpCount < PlayerManager.Instance.JumpCount)
                 Jump(jumpPower , Vector3.zero);
         }
     }
@@ -118,13 +118,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(float power, Vector3 dir) 
     {
-        canJump = false;
         jumpCount++;
 
         AddForceToDIrect(power, dir);
 
         // 애니메이션 실행
         PlayerManager.Instance.PlayerAnimator.AnimatorTrigger(PlayerAnimation.Jump);
+
+        if(jumpCount >= PlayerManager.Instance.JumpCount)
+            canJump = false;
 
         StartCoroutine(JumpAndHitGround());
     }
